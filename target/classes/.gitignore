@@ -1,2 +1,11 @@
-/com/
-/controller/
+/SqlMapConfig.xml
+/applicationContext-dao.xml
+/applicationContext-service.xml
+/applicationContext-transaction.xml
+/db.properties
+/log4j.properties
+/springmvc.xml
+/mybatis-config.xml
+/spring-dao.xml
+/spring-mvc.xml
+/spring-service.xml
