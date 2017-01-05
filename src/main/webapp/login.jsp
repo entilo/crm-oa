@@ -1,16 +1,22 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<title>Bootstrap</title>
-		<meta name="keywords" content="Bootstrapģ��,Bootstrapģ������,Bootstrap�̳�,Bootstrap����" />
-		<meta name="description" content="JS�������ṩBootstrapģ��,Bootstrap�̳�,Bootstrap���ķ�������Bootstrap�������" />
+		<meta name="keywords" content="BootstrapÄ£ï¿½ï¿½,BootstrapÄ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,Bootstrapï¿½Ì³ï¿½,Bootstrapï¿½ï¿½ï¿½ï¿½" />
+		<meta name="description" content="JSï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½á¹©BootstrapÄ£ï¿½ï¿½,Bootstrapï¿½Ì³ï¿½,Bootstrapï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Bootstrapï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 		<!-- basic styles -->
 
-		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+		<link href="<%=basePath %>assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="<%=basePath %>assets/css/font-awesome.min.css" />
 
 		<!--[if IE 7]>
 		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
@@ -24,8 +30,8 @@
 
 		<!-- ace styles -->
 
-		<link rel="stylesheet" href="assets/css/ace.min.css" />
-		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="<%=basePath %>assets/css/ace.min.css" />
+		<link rel="stylesheet" href="<%=basePath %>assets/css/ace-rtl.min.css" />
 
 		<!--[if lte IE 8]>
 		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
