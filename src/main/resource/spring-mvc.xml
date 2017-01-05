@@ -8,7 +8,7 @@
 
 
 	<!-- 扫描注解包:扫描带component,controller ,service,repository的类 -->
-	<context:component-scan base-package="com.yuanwangshu.www.controller" />
+	<context:component-scan base-package="com.crm.www.controller" />
 
 	<!-- 加载注解 -->
 	<mvc:annotation-driven />
@@ -23,7 +23,7 @@
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass"
 			value="org.springframework.web.servlet.view.JstlView" />
-		<!-- <property name="prefix" value="/WEB-INF/jsp/" /> -->
+		<property name="prefix" value="/WEB-INF/folderone/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
 
