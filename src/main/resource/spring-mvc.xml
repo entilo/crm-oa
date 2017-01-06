@@ -7,15 +7,8 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 
-	<!-- 扫描注解包:扫描带component,controller ,service,repository的类 -->
+	<!-- 扫描 -->
 	<context:component-scan base-package="com.crm.www.controller" />
-
-	<!-- 加载注解 -->
-	<mvc:annotation-driven />
-
-	<!-- default-servlet-handler主要处理静态文件如jquery.js,picture, 没有这个静态文件就不能正常运行 
-		,具体其他详细配置参考网上 -->
-	<mvc:default-servlet-handler />
 
 
 	<!-- VIEW渲染器 -->
@@ -28,6 +21,11 @@
 	</bean>
 
 
+	<!-- reseful风格 <mvc:resources location="/js/" mapping="/js/**"/> <mvc:resources 
+		location="/css/" mapping="/css/**"/> <mvc:resources location="/css/images/" 
+		mapping="/css/images/**"/> <mvc:resources location="/images/" mapping="/images/**"/> -->
+
+
 	<!-- 文件上传大小过滤 -->
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -38,11 +36,7 @@
 	</bean>
 
 	<!-- 攔截器配置 -->
-	<!-- <mvc:interceptors>
-		<mvc:interceptor>
-			<mvc:mapping path="/admin/**" />
-            <mvc:exclude-mapping path="/login.htm"/> 
-			<bean class="com.h.www.interceptor.AdminActionInterceptor" />
-		</mvc:interceptor>
-	</mvc:interceptors> -->
+	<!-- <mvc:interceptors> <mvc:interceptor> <mvc:mapping path="/admin/**" 
+		/> <mvc:exclude-mapping path="/login.htm"/> <bean class="com.h.www.interceptor.AdminActionInterceptor" 
+		/> </mvc:interceptor> </mvc:interceptors> -->
 </beans>
