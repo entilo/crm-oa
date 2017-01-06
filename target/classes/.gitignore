@@ -9,3 +9,6 @@
 /spring-dao.xml
 /spring-mvc.xml
 /spring-service.xml
+/applicationContext-ehcache.xml
+/ehcache.xml
+/spring-ehcache.xml
