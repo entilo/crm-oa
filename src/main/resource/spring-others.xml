@@ -12,17 +12,16 @@
 
 	<!-- 加载注解 -->
 	<mvc:annotation-driven />
-
+	
+	<!-- 事务支持 -->
 	<tx:annotation-driven />
 
-	<!-- 统一异常处理 -->
-	<bean class="org.java.exception.CustomerExceptionResolver"></bean>
-
+	<!-- enable autowire -->
+	<context:annotation-config />
+	
 	<!-- default-servlet-handler主要处理静态文件如jquery.js,picture, 没有这个静态文件就不能正常运行 
 		,具体其他详细配置参考网上 -->
 	<mvc:default-servlet-handler />
 
-	<!-- 统一异常处理 -->
-	<bean class="org.java.exception.CustomerExceptionResolver"></bean>
 
 </beans>
