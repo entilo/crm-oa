@@ -9,6 +9,7 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:spring-*.xml</param-value>
 	</context-param>
+
 	<!-- 监听 -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -50,4 +51,5 @@
 	<session-config>
 		<session-timeout>15</session-timeout>
 	</session-config>
+	
 </web-app>
