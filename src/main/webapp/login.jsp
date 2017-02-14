@@ -6,6 +6,12 @@
 <head>
 <meta charset="utf-8" />
 <title>登录页面</title>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+
 <meta name="keywords"
 	content="BootstrapÄ£°æ,BootstrapÄ£°æÏÂÔØ,Bootstrap½Ì³Ì,BootstrapÖÐÎÄ" />
 <meta name="description"
@@ -14,8 +20,10 @@
 
 <!-- basic styles -->
 
-<link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
+<link href="<%=basePath %>assets/css/bootstrap.min.css"
+	rel="stylesheet" />
+<link rel="stylesheet"
+	href="<%=basePath %>assets/css/font-awesome.min.css" />
 
 <!--[if IE 7]>
 		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
