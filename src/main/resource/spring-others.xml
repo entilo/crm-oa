@@ -6,7 +6,7 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- default-servlet-handler主要处理静态文件如jquery.js,picture, 没有这个静态文件就不能正常运行 
+	<!-- default-servlet-handler主要处理静态文件如jquery,js,picture,html 没有这个静态文件就不能正常运行 
 		,具体其他详细配置参考网上 -->
 	<mvc:default-servlet-handler />
 	
