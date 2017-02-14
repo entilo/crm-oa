@@ -1,5 +1,5 @@
 package com.crm.www.service;
 
-public class BaseService {
+public interface BaseService {
 
 }
