@@ -77,6 +77,11 @@
 			<version>${springversion}</version>
 			<scope>test</scope>
 		</dependency>
+		 <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${springversion}</version>
+        </dependency>
 
 		<!-- Logging with SLF4J & Log4j -->
 		<dependency>
@@ -88,10 +93,8 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.7.12</version>
+			<version>${slf4j.version}</version>
 		</dependency>
-
-		<!-- log4j -->
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
@@ -104,7 +107,6 @@
 			<artifactId>spring-session</artifactId>
 			<version>1.2.1.RELEASE</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-pool2</artifactId>
@@ -198,6 +200,7 @@
 			<artifactId>commons-io</artifactId>
 			<version>2.4</version>
 		</dependency>
+		
 		<!--commons -->
 		<dependency>
 			<groupId>commons-dbcp</groupId>

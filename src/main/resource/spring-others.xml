@@ -10,7 +10,7 @@
 		,具体其他详细配置参考网上 -->
 	<mvc:default-servlet-handler />
 	
-	<!-- 激活@Controller模式 -->
+	<!-- 激活@Controller-->
     <mvc:annotation-driven />
 
 </beans>
