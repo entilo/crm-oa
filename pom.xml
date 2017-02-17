@@ -30,7 +30,7 @@
 	</properties>
 
 	<dependencies>
-	
+
 		<!--Aspect oriented -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
@@ -92,7 +92,7 @@
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
 		</dependency>
-		
+
 		<!-- mybatis &mysql -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
@@ -113,6 +113,13 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.34</version>
+		</dependency>
+
+		<!-- pagehelper -->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+			<version>3.2.3</version>
 		</dependency>
 
 		<!-- c3p0 -->
