@@ -1,6 +1,6 @@
 package com.crm.www.utils;
 
-public class RegexUtils {
+public class RegexUtil {
 
 	// Email正则表达式=
 	public static final String EMAIL = "\\w+(\\.\\w+)*@\\w+(\\.\\w+)+";
