@@ -1,6 +1,7 @@
 package com.crm.www.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @author:12
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
  * @FileInfo:com.crm.www.controller.AdminController.java
  */
 @Controller
+@RequestMapping("/admin")
 public class AdminController {
 
 }
