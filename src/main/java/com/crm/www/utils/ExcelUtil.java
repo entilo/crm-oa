@@ -7,11 +7,11 @@ import java.util.List;
 
 public class ExcelUtil<T> {
 	// 表名
-	private static String EXCELNAME;
+	private String excelName;
 	// 表创建时间
-	private static Date EXCELCREATINGDATE;
+	private Date excelCreateDate;
 	// 表格描述
-	private static String EXCELDESCRIBE;
+	private String excelDescribe;
 
 	/**
 	 * 普通对象的屬性转化为Excel表中的列明
@@ -21,7 +21,6 @@ public class ExcelUtil<T> {
 		List<String> strlist = new ArrayList<>();
 		Field[] fields = cla.getDeclaredFields();
 		String reg = cla.getName().toString() + ".";
-		System.out.println(reg);
 		for (int i = 0; i < fields.length; i++) {
 			strlist.add((fields[i].toString().split(reg))[1].toString());
 		}
