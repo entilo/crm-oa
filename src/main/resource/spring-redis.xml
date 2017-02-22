@@ -58,22 +58,20 @@
 	<bean id="dataSourceExchange" class="com.crm.www.utils.DataSourceExchange" />
 	<!--配置切面拦截方法 -->
 	<aop:config proxy-target-class="false">
-		<!--将com.crossoverJie.service包下的所有select开头的方法加入拦截 去掉select则加入所有方法 -->
+		<!--将com.crm.www.service包下的所有select开头的方法加入拦截 去掉select则加入所有方法 -->
 		<aop:pointcut id="controllerMethodPointcut"
 			expression="
-        execution(* com.crossoverJie.service.*.select*(..))" />
-
+        execution(* com.crm.www.service.*.select*(..))" />
 		<aop:pointcut id="selectMethodPointcut"
 			expression="
-        execution(* com.crossoverJie.dao..*Mapper.select*(..))" />
-
+        execution(* com.crm.www.dao..*Mapper.select*(..))" />
 		<aop:advisor advice-ref="methodCacheInterceptor"
 			pointcut-ref="controllerMethodPointcut" />
 
 		<!--所有数据库操作的方法加入切面 -->
 		<aop:aspect ref="dataSourceExchange">
 			<aop:pointcut id="dataSourcePointcut"
-				expression="execution(* com.crossoverJie.service.*.*(..))" />
+				expression="execution(* com.crm.www.service.*.*(..))" />
 			<aop:before pointcut-ref="dataSourcePointcut" method="before" />
 			<aop:after pointcut-ref="dataSourcePointcut" method="after" />
 		</aop:aspect>
