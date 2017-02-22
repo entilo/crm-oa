@@ -1,0 +1,83 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+        http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+
+	<!-- 引入配置文件 -->
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:redis.properties" />
+	</bean>
+	
+
+	<!-- jedis 配置 -->
+	<bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
+		<property name="maxIdle" value="${redis.maxIdle}" />
+		<property name="maxWaitMillis" value="${redis.maxWait}" />
+		<property name="testOnBorrow" value="${redis.testOnBorrow}" />
+	</bean>
+	<!-- redis服务器中心 -->
+	<bean id="connectionFactory"
+		class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+		<property name="poolConfig" ref="poolConfig" />
+		<property name="port" value="${redis.port}" />
+		<property name="hostName" value="${redis.host}" />
+		<property name="password" value="${redis.password}" />
+		<property name="timeout" value="${redis.timeout}"></property>
+	</bean>
+	<bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="keySerializer">
+			<bean
+				class="org.springframework.data.redis.serializer.StringRedisSerializer" />
+		</property>
+		<property name="valueSerializer">
+			<bean
+				class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer" />
+		</property>
+	</bean>
+
+	<!-- cache配置 -->
+	<bean id="methodCacheInterceptor" class="com.crm.www.interceptor.MethodCacheInterceptor">
+		<property name="redisUtil" ref="redisUtil" />
+	</bean>
+	<bean id="redisUtil" class="com.crm.www.utils.RedisUtil">
+		<property name="redisTemplate" ref="redisTemplate" />
+	</bean>
+
+
+	<bean id="dataSourceExchange" class="com.crm.www.utils.DataSourceExchange" />
+	<!--配置切面拦截方法 -->
+	<aop:config proxy-target-class="false">
+		<!--将com.crossoverJie.service包下的所有select开头的方法加入拦截 去掉select则加入所有方法 -->
+		<aop:pointcut id="controllerMethodPointcut"
+			expression="
+        execution(* com.crossoverJie.service.*.select*(..))" />
+
+		<aop:pointcut id="selectMethodPointcut"
+			expression="
+        execution(* com.crossoverJie.dao..*Mapper.select*(..))" />
+
+		<aop:advisor advice-ref="methodCacheInterceptor"
+			pointcut-ref="controllerMethodPointcut" />
+
+		<!--所有数据库操作的方法加入切面 -->
+		<aop:aspect ref="dataSourceExchange">
+			<aop:pointcut id="dataSourcePointcut"
+				expression="execution(* com.crossoverJie.service.*.*(..))" />
+			<aop:before pointcut-ref="dataSourcePointcut" method="before" />
+			<aop:after pointcut-ref="dataSourcePointcut" method="after" />
+		</aop:aspect>
+
+	</aop:config>
+
+
+</beans>
