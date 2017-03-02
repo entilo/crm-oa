@@ -15,6 +15,7 @@ public class LoginAndSignController {
 
 	@RequestMapping("/login")
 	public String login() {
+		System.out.println("enter login");
 		return null;
 	}
 
