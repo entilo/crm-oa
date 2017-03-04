@@ -17,7 +17,7 @@
 		<property name="ignoreUnresolvablePlaceholders" value="true" />
 	</bean>
 
-	<!-- 数据源 mysql:crm数据库，使用dbcp -->
+	<!-- 数据源：使用第一个数据库 mysql:crm -->
 	<bean id="dataSource_1" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<property name="driverClass" value="${jdbc.driverClass}" />
