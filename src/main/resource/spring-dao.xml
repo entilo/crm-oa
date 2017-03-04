@@ -17,13 +17,13 @@
 		<property name="ignoreUnresolvablePlaceholders" value="true" />
 	</bean>
 
-	<!-- 数据源，使用dbcp -->
-	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+	<!-- 数据源 mysql:crm数据库，使用dbcp -->
+	<bean id="dataSource_1" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<property name="driverClass" value="${jdbc.driverClass}" />
-		<property name="jdbcUrl" value="${jdbc.jdbcUrl}" />
-		<property name="user" value="${jdbc.user}" />
-		<property name="password" value="${jdbc.password}" />
+		<property name="jdbcUrl" value="${jdbc.jdbcUrl_1}" />
+		<property name="user" value="${jdbc.user_1}" />
+		<property name="password" value="${jdbc.password_1}" />
 		<property name="minPoolSize" value="${jdbc.miniPoolSize}" />
 		<property name="maxPoolSize" value="${jdbc.maxPoolSize}" />
 		<property name="initialPoolSize" value="${jdbc.initialPoolSize}" />
@@ -36,12 +36,32 @@
 		<property name="automaticTestTable" value="${jdbc.automaticTestTable}" />
 		<property name="idleConnectionTestPeriod" value="${jdbc.idleConnectionTestPeriod}" />
 		<property name="checkoutTimeout" value="${jdbc.checkoutTimeout}" />
+	</bean>
 
+	<!-- 数据源 mysql:crm数据库，使用dbcp -->
+	<bean id="dataSource_2" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="${jdbc.driverClass}" />
+		<property name="jdbcUrl" value="${jdbc.jdbcUrl_2}" />
+		<property name="user" value="${jdbc.user_2}" />
+		<property name="password" value="${jdbc.password_2}" />
+		<property name="minPoolSize" value="${jdbc.miniPoolSize}" />
+		<property name="maxPoolSize" value="${jdbc.maxPoolSize}" />
+		<property name="initialPoolSize" value="${jdbc.initialPoolSize}" />
+		<property name="maxIdleTime" value="${jdbc.maxIdleTime}" />
+		<property name="acquireIncrement" value="${jdbc.acquireIncrement}" />
+
+		<property name="acquireRetryAttempts" value="${jdbc.acquireRetryAttempts}" />
+		<property name="acquireRetryDelay" value="${jdbc.acquireRetryDelay}" />
+		<property name="testConnectionOnCheckin" value="${jdbc.testConnectionOnCheckin}" />
+		<property name="automaticTestTable" value="${jdbc.automaticTestTable}" />
+		<property name="idleConnectionTestPeriod" value="${jdbc.idleConnectionTestPeriod}" />
+		<property name="checkoutTimeout" value="${jdbc.checkoutTimeout}" />
 	</bean>
 
 	<!-- 2.配置sqlSessionFactory -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" />
+		<property name="dataSource" ref="dataSource_1" />
 		<property name="typeAliasesPackage" value="com.crm.www.entity" />
 		<property name="configLocation" value="classpath:mybatis-config.xml" />
 		<property name="mapperLocations">
