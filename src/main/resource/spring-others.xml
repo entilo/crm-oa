@@ -12,11 +12,10 @@
 	<!-- 主要处理静态文件如jquery,js,picture,html 没有这个静态文件就不能正常运行 -->
 	<mvc:default-servlet-handler />
 
-	<!-- 激活@Controller -->
+	<!-- 激Controller -->
 	<mvc:annotation-driven />
 
-	<!-- 打开aop 注解 -->
+	<!-- 打开aop注解 -->
 	<aop:aspectj-autoproxy proxy-target-class="true" />
-	
 	
 </beans>
