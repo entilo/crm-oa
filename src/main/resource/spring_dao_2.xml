@@ -21,9 +21,9 @@
 	<bean id="dataSource_1" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<property name="driverClass" value="${jdbc.driverClass}" />
-		<property name="jdbcUrl" value="${jdbc.jdbcUrl_1}" />
-		<property name="user" value="${jdbc.user_1}" />
-		<property name="password" value="${jdbc.password_1}" />
+		<property name="jdbcUrl" value="${jdbc.jdbcUrl_2}" />
+		<property name="user" value="${jdbc.user_2}" />
+		<property name="password" value="${jdbc.password_2}" />
 		<property name="minPoolSize" value="${jdbc.miniPoolSize}" />
 		<property name="maxPoolSize" value="${jdbc.maxPoolSize}" />
 		<property name="initialPoolSize" value="${jdbc.initialPoolSize}" />
@@ -40,22 +40,22 @@
 
 	
 	<!-- 2.配置sqlSessionFactory -->
-	<bean id="sqlSessionFactory_1" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dataSource_1" />
-		<property name="typeAliasesPackage" value="com.crm.www.entity" />
+	<bean id="sqlSessionFactory_2" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource_2" />
+		<property name="typeAliasesPackage" value="com.crm.www.entity_2" />
 		<property name="configLocation" value="classpath:mybatis-config.xml" />
 		<property name="mapperLocations">
 			<array>
-				<value>classpath:com/crm/www/dao/impl/*Mapper.xml</value>
+				<value>classpath:com/crm/www/dao_2/impl_2/*Mapper.xml</value>
 			</array>
 		</property>
 	</bean>
 
 	<!-- 3.掃描mybatis接口 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.crm.www.dao" />
+		<property name="basePackage" value="com.crm.www.dao_2" />
 		<!--勿用name="sqlSessionFactory"，容易報錯 -->
-		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory_1" />
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory_2" />
 	</bean>
 
 </beans>
