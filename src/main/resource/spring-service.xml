@@ -14,7 +14,7 @@
 	<!-- 事务管理器 -->
 	<bean id="txManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource" />
+		<property name="dataSource" ref="dataSource_1" />
 	</bean>
 
 	<!-- 切面 -->
