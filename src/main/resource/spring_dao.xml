@@ -17,7 +17,7 @@
 		<property name="ignoreUnresolvablePlaceholders" value="true" />
 	</bean>
 
-	<!-- 数据源：使用第二个数据库 mysql:crm_1 -->
+	<!-- 1.1数据源：使用第二个数据库 mysql:crm_1 -->
 	<bean id="dataSource_1" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<property name="driverClass" value="${jdbc.driverClass}" />
@@ -39,7 +39,7 @@
 	</bean>
 
 
-	<!-- 2.配置sqlSessionFactory -->
+	<!-- 1.2.配置sqlSessionFactory -->
 	<bean id="sqlSessionFactory_2" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource_2" />
 		<property name="typeAliasesPackage" value="com.crm.www.entity_2" />
@@ -51,7 +51,7 @@
 		</property>
 	</bean>
 
-	<!-- 3.掃描mybatis接口 -->
+	<!-- 1.3.掃描mybatis接口 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.crm.www.dao_2" />
 		<!--勿用name="sqlSessionFactory"，容易報錯 -->
@@ -66,7 +66,7 @@
 
 
 
-	<!-- 1.数据库配置文件 -->
+	<!-- 2.1.数据库配置文件 -->
 	<!-- 加載數據庫簡單設置信息 -->
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -74,7 +74,7 @@
 		<property name="ignoreUnresolvablePlaceholders" value="true" />
 	</bean>
 
-	<!-- 数据源：使用第一个数据库 mysql:crm -->
+	<!-- 2.1.1数据源：使用第一个数据库 mysql:crm -->
 	<bean id="dataSource_1" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<property name="driverClass" value="${jdbc.driverClass}" />
@@ -96,7 +96,7 @@
 	</bean>
 
 
-	<!-- 2.配置sqlSessionFactory -->
+	<!-- 2.2.配置sqlSessionFactory -->
 	<bean id="sqlSessionFactory_1" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource_1" />
 		<property name="typeAliasesPackage" value="com.crm.www.entity" />
@@ -108,7 +108,7 @@
 		</property>
 	</bean>
 
-	<!-- 3.掃描mybatis接口 -->
+	<!-- 2.3.掃描mybatis接口 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.crm.www.dao" />
 		<!--勿用name="sqlSessionFactory"，容易報錯 -->
