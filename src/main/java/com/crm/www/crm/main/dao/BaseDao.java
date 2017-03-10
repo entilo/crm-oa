@@ -1,4 +1,4 @@
-package com.crm.www.dao;
+package com.crm.www.crm.main.dao;
 
 import java.sql.SQLException;
 import java.util.List;
