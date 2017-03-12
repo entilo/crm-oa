@@ -9,7 +9,6 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 	<!-- 1.数据库配置文件 -->
-	<!-- 加載數據庫簡單設置信息 -->
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location" value="classpath:db.properties" />
@@ -17,7 +16,7 @@
 	</bean>
 
 	<!-- 1.1数据源：使用第二个数据库 mysql:crm_1 -->
-	<bean id="dataSourceMain" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+	<bean id="dataSource_main" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<property name="driverClass" value="${jdbc.driverClass}" />
 		<property name="jdbcUrl" value="${jdbc.jdbcUrl_2}" />
@@ -38,7 +37,7 @@
 
 	<!-- 1.2.配置sqlSessionFactory -->
 	<bean id="sqlSessionFactory_main" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dataSourceMain" />
+		<property name="dataSource" ref="dataSource_main" />
 		<property name="typeAliasesPackage" value="com.crm.www.entity" />
 		<property name="configLocation" value="classpath:mybatis-config.xml" />
 		<property name="mapperLocations">

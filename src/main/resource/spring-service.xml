@@ -11,10 +11,11 @@
 	<!-- 扫描 -->
 	<context:component-scan base-package="com.crm.www.crm.main.service" />
 
+	
 	<!-- 事务管理器 -->
 	<bean id="txManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSourceMain" />
+		<property name="dataSource" ref="dataSource_other" />
 	</bean>
 
 	<!-- 切面 -->
