@@ -3,83 +3,93 @@ package com.crm.www.entity;
 import java.util.Date;
 
 public class Users {
-    private Integer userId;
+	private Integer userId;
 
-    private String userName;
+	private String userName;
 
-    private String password;
+	private String password;
 
-    private Integer phone;
+	private Integer phone;
+	
+	private Date signTime;
+	// 数据库自动更新：CURRENT_TIMESTAMP
+	private Date lastLogintime;
 
-    private Date signTime;
+	private Boolean userStatus;
 
-    private Date lastLogintime;
+	private Integer functionId;
 
-    private Boolean userStatus;
+	public Integer getUserId() {
+		return userId;
+	}
 
-    private Integer functionId;
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
 
-    public Integer getUserId() {
-        return userId;
-    }
+	public String getUserName() {
+		return userName;
+	}
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
-    public String getUserName() {
-        return userName;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public Integer getPhone() {
+		return phone;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public void setPhone(Integer phone) {
+		this.phone = phone;
+	}
 
-    public Integer getPhone() {
-        return phone;
-    }
+	public Date getSignTime() {
+		return signTime;
+	}
 
-    public void setPhone(Integer phone) {
-        this.phone = phone;
-    }
+	public void setSignTime(Date signTime) {
+		this.signTime = signTime;
+	}
 
-    public Date getSignTime() {
-        return signTime;
-    }
+	public Date getLastLogintime() {
+		return lastLogintime;
+	}
 
-    public void setSignTime(Date signTime) {
-        this.signTime = signTime;
-    }
+	public void setLastLogintime(Date lastLogintime) {
+		this.lastLogintime = lastLogintime;
+	}
 
-    public Date getLastLogintime() {
-        return lastLogintime;
-    }
+	public Boolean getUserStatus() {
+		return userStatus;
+	}
 
-    public void setLastLogintime(Date lastLogintime) {
-        this.lastLogintime = lastLogintime;
-    }
+	public void setUserStatus(Boolean userStatus) {
+		this.userStatus = userStatus;
+	}
 
-    public Boolean getUserStatus() {
-        return userStatus;
-    }
+	public Integer getFunctionId() {
+		return functionId;
+	}
 
-    public void setUserStatus(Boolean userStatus) {
-        this.userStatus = userStatus;
-    }
+	public void setFunctionId(Integer functionId) {
+		this.functionId = functionId;
+	}
 
-    public Integer getFunctionId() {
-        return functionId;
-    }
+	@Override
+	public String toString() {
+		return "Users [userId=" + userId + ", userName=" + userName
+				+ ", password=" + password + ", phone=" + phone + ", signTime="
+				+ signTime + ", lastLogintime=" + lastLogintime
+				+ ", userStatus=" + userStatus + ", functionId=" + functionId
+				+ "]";
+	}
 
-    public void setFunctionId(Integer functionId) {
-        this.functionId = functionId;
-    }
 }
