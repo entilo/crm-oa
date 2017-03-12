@@ -1,4 +1,4 @@
-package com.crm.www.crm.main.service;
+package com.crm.www.crm.service;
 
 public interface BaseService {
 
