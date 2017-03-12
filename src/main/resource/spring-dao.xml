@@ -64,8 +64,8 @@
 		destroy-method="close">
 		<property name="driverClass" value="${jdbc.driverClass}" />
 		<property name="jdbcUrl" value="${jdbc.jdbcUrl_2}" />
-		<property name="user" value="${jdbc.user_2}" />
-		<property name="password" value="${jdbc.password_2}" />
+		<property name="user" value="${jdbc.user_1}" />
+		<property name="password" value="${jdbc.password_1}" />
 		<property name="minPoolSize" value="${jdbc.miniPoolSize}" />
 		<property name="maxPoolSize" value="${jdbc.maxPoolSize}" />
 		<property name="initialPoolSize" value="${jdbc.initialPoolSize}" />
