@@ -42,6 +42,7 @@ public class UsersMapperTest {
 		user.setUserStatus(true);
 		user.setSignTime(new Date(System.currentTimeMillis()));
 		user.setFunctionId(3);
+		System.out.println(user);
 		userMapper.insert(user);
 	}
 
