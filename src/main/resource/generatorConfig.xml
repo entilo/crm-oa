@@ -15,18 +15,18 @@
 			driverClass="com.mysql.jdbc.Driver" password="entilo" userId="root" />
 
 		<!-- entity/pojo/domain -->
-		<javaModelGenerator targetPackage="com.h.www.entity"
-			targetProject="house" />
+		<javaModelGenerator targetPackage="com.crm.www.entity"
+			targetProject="crm" />
 
 		<!-- maven项目sqlMapGenerator配置 Mapper.xml -->
 		<!-- <sqlMapGenerator targetPackage="com.ct.ic.st.eu.dao" targetProject="cms-core/src/main/java"> -->
 		<!-- Mapper.xml -->
-		<sqlMapGenerator targetPackage="com.h.www.dao.impl"
-			targetProject="house" />
+		<sqlMapGenerator targetPackage="com.crm.www.crm.main.dao.impl"
+			targetProject="crm" />
 
 		<!-- dao/Mapper -->
-		<javaClientGenerator targetPackage="com.h.www.dao"
-			targetProject="house" type="XMLMAPPER" />
+		<javaClientGenerator targetPackage="com.crm.www.crm.main.dao"
+			targetProject="crm" type="XMLMAPPER" />
 
 
 		<table schema="root" tableName="%" enableCountByExample="false"
