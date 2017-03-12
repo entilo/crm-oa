@@ -23,11 +23,11 @@
 		<!-- maven项目sqlMapGenerator配置 Mapper.xml -->
 		<!-- <sqlMapGenerator targetPackage="com.ct.ic.st.eu.dao" targetProject="cms-core/src/main/java"> -->
 		<!-- Mapper.xml -->
-		<sqlMapGenerator targetPackage="com.crm.www.crm.main.dao.impl"
+		<sqlMapGenerator targetPackage="com.crm.www.crm.other.dao.impl"
 			targetProject="crm" />
 
 		<!-- dao/Mapper -->
-		<javaClientGenerator targetPackage="com.crm.www.crm.main.dao"
+		<javaClientGenerator targetPackage="com.crm.www.crm.other.dao"
 			targetProject="crm" type="XMLMAPPER" />
 
 
