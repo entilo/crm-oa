@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crm.www.crm.main.dao.FunctionUrlMapper">
+  <resultMap id="BaseResultMap" type="com.crm.www.entity.FunctionUrl">
+    <id column="function_url_id" jdbcType="INTEGER" property="functionUrlId" />
+    <result column="functiion_url_name" jdbcType="VARCHAR" property="functiionUrlName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    function_url_id, functiion_url_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from function_url
+    where function_url_id = #{functionUrlId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from function_url
+    where function_url_id = #{functionUrlId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.crm.www.entity.FunctionUrl">
+    insert into function_url (function_url_id, functiion_url_name)
+    values (#{functionUrlId,jdbcType=INTEGER}, #{functiionUrlName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.crm.www.entity.FunctionUrl">
+    insert into function_url
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="functionUrlId != null">
+        function_url_id,
+      </if>
+      <if test="functiionUrlName != null">
+        functiion_url_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="functionUrlId != null">
+        #{functionUrlId,jdbcType=INTEGER},
+      </if>
+      <if test="functiionUrlName != null">
+        #{functiionUrlName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.crm.www.entity.FunctionUrl">
+    update function_url
+    <set>
+      <if test="functiionUrlName != null">
+        functiion_url_name = #{functiionUrlName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where function_url_id = #{functionUrlId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.crm.www.entity.FunctionUrl">
+    update function_url
+    set functiion_url_name = #{functiionUrlName,jdbcType=VARCHAR}
+    where function_url_id = #{functionUrlId,jdbcType=INTEGER}
+  </update>
+</mapper>

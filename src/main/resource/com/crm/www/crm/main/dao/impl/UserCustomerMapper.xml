@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crm.www.crm.main.dao.UserCustomerMapper">
+  <resultMap id="BaseResultMap" type="com.crm.www.entity.UserCustomer">
+    <id column="relation_id" jdbcType="INTEGER" property="relationId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="customer_id" jdbcType="INTEGER" property="customerId" />
+    <result column="relation_start_time" jdbcType="TIMESTAMP" property="relationStartTime" />
+    <result column="is_relation_status_ok" jdbcType="BIT" property="isRelationStatusOk" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    relation_id, user_id, customer_id, relation_start_time, is_relation_status_ok
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_customer
+    where relation_id = #{relationId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user_customer
+    where relation_id = #{relationId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.crm.www.entity.UserCustomer">
+    insert into user_customer (relation_id, user_id, customer_id, 
+      relation_start_time, is_relation_status_ok)
+    values (#{relationId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{customerId,jdbcType=INTEGER}, 
+      #{relationStartTime,jdbcType=TIMESTAMP}, #{isRelationStatusOk,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.crm.www.entity.UserCustomer">
+    insert into user_customer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="relationId != null">
+        relation_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="customerId != null">
+        customer_id,
+      </if>
+      <if test="relationStartTime != null">
+        relation_start_time,
+      </if>
+      <if test="isRelationStatusOk != null">
+        is_relation_status_ok,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="relationId != null">
+        #{relationId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="customerId != null">
+        #{customerId,jdbcType=INTEGER},
+      </if>
+      <if test="relationStartTime != null">
+        #{relationStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isRelationStatusOk != null">
+        #{isRelationStatusOk,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.crm.www.entity.UserCustomer">
+    update user_customer
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="customerId != null">
+        customer_id = #{customerId,jdbcType=INTEGER},
+      </if>
+      <if test="relationStartTime != null">
+        relation_start_time = #{relationStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isRelationStatusOk != null">
+        is_relation_status_ok = #{isRelationStatusOk,jdbcType=BIT},
+      </if>
+    </set>
+    where relation_id = #{relationId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.crm.www.entity.UserCustomer">
+    update user_customer
+    set user_id = #{userId,jdbcType=INTEGER},
+      customer_id = #{customerId,jdbcType=INTEGER},
+      relation_start_time = #{relationStartTime,jdbcType=TIMESTAMP},
+      is_relation_status_ok = #{isRelationStatusOk,jdbcType=BIT}
+    where relation_id = #{relationId,jdbcType=INTEGER}
+  </update>
+</mapper>
