@@ -18,17 +18,17 @@
 
 		<!-- entity/pojo/domain -->
 		<javaModelGenerator targetPackage="com.crm.www.entity"
-			targetProject="crm" />
+			targetProject="crm/src/main/java" />
 
 		<!-- maven项目sqlMapGenerator配置 Mapper.xml -->
 		<!-- <sqlMapGenerator targetPackage="com.ct.ic.st.eu.dao" targetProject="cms-core/src/main/java"> -->
 		<!-- Mapper.xml -->
 		<sqlMapGenerator targetPackage="com.crm.www.crm.other.dao.impl"
-			targetProject="crm" />
+			targetProject="crm/src/main/java" />
 
 		<!-- dao/Mapper -->
 		<javaClientGenerator targetPackage="com.crm.www.crm.other.dao"
-			targetProject="crm" type="XMLMAPPER" />
+			targetProject="crm/src/main/java" type="XMLMAPPER" />
 
 
 		<table schema="root" tableName="%" enableCountByExample="false"
